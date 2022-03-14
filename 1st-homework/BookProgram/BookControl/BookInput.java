@@ -49,6 +49,7 @@ public class BookInput {
 
         System.out.print("금액 입력 : ");
         int book_price = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.print("저자명 입력 : ");
         String book_author = scanner.nextLine();
@@ -62,7 +63,6 @@ public class BookInput {
     }
 
     public void BookInput_check() {
-
         System.out.println("<< 도서 입고 - 입력 정보 확인 >>");
         System.out.println();
 
@@ -86,12 +86,15 @@ public class BookInput {
         System.out.println(mod_str);
 
         if (mod_str.equals("1")) {
+            System.out.println(book_list.book_list);
             System.out.println(book_list.total_book_list);
+
             return;
         } else if (mod_str.equals("2")) {
             BookInput_modify();
             BookInput_check();
         } else {
+            book_list.book_list.clear();
             return;
         }
 

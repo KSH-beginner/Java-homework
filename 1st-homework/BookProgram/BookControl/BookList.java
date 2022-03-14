@@ -1,19 +1,25 @@
 package BookControl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BookList {
-    static List<String> book_list = new ArrayList<String>();
-    static List<String> total_book_list = new ArrayList<String>();
+
+    List<String> book_list = new ArrayList<String>();
+    List<List<String>> total_book_list = new ArrayList<List<String>>();
+
 
     public void booklist_add(String book_name,
-                              String book_category,
-                              String input_date,
-                              int book_quantity,
-                              int book_price,
-                              String book_author,
-                              String book_publisher) {
+                             String book_category,
+                             String input_date,
+                             int book_quantity,
+                             int book_price,
+                             String book_author,
+                             String book_publisher) {
+
+
+
         book_list.add(book_name);
         book_list.add(book_category);
         book_list.add(input_date);
@@ -22,9 +28,32 @@ public class BookList {
         book_list.add(book_author);
         book_list.add(book_publisher);
 
-        total_book_list.add(String.valueOf(book_list));
+        total_book_list.add(book_list);
     }
 
+    public int booklist_find(String book_name) {
+        for (int i = 0; i < total_book_list.size(); i++) {
+            List<String> book_list = total_book_list.get(i);
+            System.out.println(book_list);
+            if (book_list.contains(book_name)) {
+                return i;
+            }
+        }
+        System.out.println("책이 목록에 없습니다!");
+        return -1;
+    }
+
+        public void booklist_release(int index, int book_quantity) {
+            List<String> book_list = total_book_list.get(index);
+            int new_quantity = Integer.parseInt(book_list.get(3)) - book_quantity;
+            if (new_quantity > 0) {
+                book_list.set(3, String.valueOf(new_quantity));
+            } else if (new_quantity == 0) {
+                book_list.clear();
+            } else {
+                System.out.println("현재 재고보다 수량이 많습니다!");
+            }
+        }
 
 
     public String getBook_name() { return book_list.get(0); }
@@ -48,5 +77,5 @@ public class BookList {
     public String getBook_publisher() { return book_list.get(6); }
     public void SetBook_publisher(String book_publisher) { book_list.set(6, book_publisher); }
 
-    public List<String> getTotal_book_list() { return total_book_list; }
+
 }
