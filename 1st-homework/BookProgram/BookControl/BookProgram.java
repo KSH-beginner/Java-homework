@@ -9,6 +9,7 @@ public class BookProgram {
         Scanner scanner = new Scanner(System.in);
         BookInput bookinput = new BookInput();
         BookOutput bookoutput = new BookOutput();
+        BookSearch booksearch = new BookSearch();
 
         boolean run = true;
         while (run) {
@@ -33,6 +34,8 @@ public class BookProgram {
 //                    System.out.println("책이 재고에 있습니다!");}
 //                bookoutput.BookOutput_output();
 ////                bookoutput.BookOutput_check();
+            } else if (num == 3) {
+                booksearch.BookSearch_search();
             }
         }
     }

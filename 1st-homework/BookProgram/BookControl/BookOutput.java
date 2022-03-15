@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class BookOutput {
 
     Scanner scanner = new Scanner(System.in);
-    BookList book_list = new BookList();
+
 
     public void BookOutput_output() {
         System.out.println("<< 도서 출고 >>");
@@ -21,7 +21,7 @@ public class BookOutput {
         int book_quantity = scanner.nextInt();
         scanner.nextLine();
 
-        if (book_list.booklist_find(book_name) != -1) {
+        if (BookList.booklist_find(book_name) != -1) {
             BookOutput_check(book_name, book_quantity);
         }
     }
@@ -40,9 +40,9 @@ public class BookOutput {
         String select_num = scanner.nextLine();
 
         if (select_num.equals("1")) {
-            int index = book_list.booklist_find(book_name);
-            book_list.booklist_release(index, book_quantity);
-            System.out.println(book_list.total_book_list);
+            int index = BookList.booklist_find(book_name);
+            BookList.booklist_release(index, book_quantity);
+            System.out.println(BookList.total_book_list);
         }
     }
 }

@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class BookInput {
 
     Scanner scanner = new Scanner(System.in);
-    BookList book_list = new BookList();
+
 
     public void BookInput_input() {
-        book_list.book_list.clear();
+        BookList.book_list.clear();
         System.out.println("<< 도서 입고 >>");
         System.out.println("");
         System.out.println("입고 처리할 도서에 대한 정보를 입력해주세요.");
@@ -57,7 +57,7 @@ public class BookInput {
         System.out.print("출판사 입력 : ");
         String book_publisher = scanner.nextLine();
 
-        book_list.booklist_add(book_name, book_category, input_date, book_quantity, book_price, book_author, book_publisher);
+        BookList.booklist_add(book_name, book_category, input_date, book_quantity, book_price, book_author, book_publisher);
 
         BookInput_check();
     }
@@ -68,13 +68,13 @@ public class BookInput {
 
         System.out.println("입력한 도서 정보의 항목들을 확인해주세요.");
 
-        System.out.println("- 도서명 : " + book_list.getBook_name());
-        System.out.println("- 카테고리 : " + book_list.getBook_category());
-        System.out.println("- 입고일 : " + book_list.getInput_date());
-        System.out.println("- 수량 : " + book_list.getBook_quantity());
-        System.out.println("- 금액 : " + book_list.getBook_price());
-        System.out.println("- 저자명 : " + book_list.getBook_author());
-        System.out.println("- 출판사 : " + book_list.getBook_publisher());
+        System.out.println("- 도서명 : " + BookList.getBook_name());
+        System.out.println("- 카테고리 : " + BookList.getBook_category());
+        System.out.println("- 입고일 : " + BookList.getInput_date());
+        System.out.println("- 수량 : " + BookList.getBook_quantity());
+        System.out.println("- 금액 : " + BookList.getBook_price());
+        System.out.println("- 저자명 : " + BookList.getBook_author());
+        System.out.println("- 출판사 : " + BookList.getBook_publisher());
 
         System.out.println("-----------------------");
         System.out.println("1. 입력한 정보로 도서 입고 처리");
@@ -86,15 +86,15 @@ public class BookInput {
         System.out.println(mod_str);
 
         if (mod_str.equals("1")) {
-            System.out.println(book_list.book_list);
-            System.out.println(book_list.total_book_list);
+            System.out.println(BookList.book_list);
+            System.out.println(BookList.total_book_list);
 
             return;
         } else if (mod_str.equals("2")) {
             BookInput_modify();
             BookInput_check();
         } else {
-            book_list.book_list.clear();
+            BookList.book_list.clear();
             return;
         }
 
@@ -122,7 +122,7 @@ public class BookInput {
             case "1":
                 System.out.print("수정할 도서명 입력 : ");
                 String modify_book_name = scanner.nextLine();
-                book_list.SetBook_name(modify_book_name);
+                BookList.SetBook_name(modify_book_name);
                 break;
             case "2":
                 System.out.print("수정할 카테고리 입력 : ");
@@ -144,32 +144,32 @@ public class BookInput {
                         modify_book_category = "A500(여행)";
                         break;
                 }
-                book_list.SetBook_category(modify_book_category);
+                BookList.SetBook_category(modify_book_category);
                 break;
             case "3":
                 System.out.print("수정할 입고일 입력 : ");
                 String modify_input_date = scanner.nextLine();
-                book_list.SetInput_date(modify_input_date);
+                BookList.SetInput_date(modify_input_date);
                 break;
             case "4":
                 System.out.print("수정할 수량 입력 : ");
                 String modify_book_quantity = scanner.nextLine();
-                book_list.SetBook_quantity(modify_book_quantity);
+                BookList.SetBook_quantity(modify_book_quantity);
                 break;
             case "5":
                 System.out.print("수정할 금액 입력 : ");
                 String modify_book_price = scanner.nextLine();
-                book_list.SetBook_price(modify_book_price);
+                BookList.SetBook_price(modify_book_price);
                 break;
             case "6":
                 System.out.print("수정할 저자명 입력 : ");
                 String modify_book_author = scanner.nextLine();
-                book_list.SetBook_author(modify_book_author);
+                BookList.SetBook_author(modify_book_author);
                 break;
             case "7":
                 System.out.print("수정할 출판사명 입력 : ");
                 String modify_book_publisher = scanner.nextLine();
-                book_list.SetBook_publisher(modify_book_publisher);
+                BookList.SetBook_publisher(modify_book_publisher);
                 break;
             case "c":
                 return;
